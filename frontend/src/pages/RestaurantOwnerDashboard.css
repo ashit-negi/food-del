@@ -1,0 +1,98 @@
+/* ================= OWNER DASHBOARD WRAPPER ================= */
+.owner-dashboard {
+  max-width: 520px;
+  margin-bottom: 36px;
+
+  background: linear-gradient(135deg, #f1fbf6, #e3f3ea);
+
+  padding: 26px 28px;
+  border-radius: 18px;
+
+  box-shadow: 0 22px 40px rgba(0, 0, 0, 0.22);
+  animation: fadeUp 0.4s ease;
+}
+
+/* TITLE */
+.owner-dashboard h2 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 18px;
+  color: #064e3b;
+}
+
+/* ================= FORM ================= */
+.restaurant-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* INPUTS */
+.restaurant-form input {
+  padding: 11px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(6, 95, 70, 0.25);
+
+  font-size: 14px;
+  color: #064e3b;
+  background: #ffffff;
+
+  transition: all 0.2s ease;
+}
+
+.restaurant-form input::placeholder {
+  color: #6b7280;
+}
+
+.restaurant-form input:focus {
+  outline: none;
+  border-color: #059669;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.25);
+}
+
+/* ================= BUTTON ================= */
+.restaurant-form button {
+  margin-top: 6px;
+
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+
+  background: #064e3b;
+  color: #ecfdf5;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.restaurant-form button:hover {
+  background: #022c22;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .owner-dashboard {
+    padding: 22px;
+  }
+
+  .owner-dashboard h2 {
+    font-size: 20px;
+  }
+}

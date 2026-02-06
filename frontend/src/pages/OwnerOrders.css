@@ -1,0 +1,199 @@
+/* ================= OWNER ORDERS PAGE ================= */
+.owner-orders {
+  padding: 48px;
+  min-height: calc(100vh - 64px);
+
+  background: linear-gradient(180deg, #9edfc3 0%, #6fcf9a 45%, #8fe0ba 100%);
+}
+
+/* TITLE */
+.owner-orders h1 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 28px;
+  color: #064e3b;
+}
+
+/* ================= ORDER CARD ================= */
+.owner-order-card {
+  background: linear-gradient(135deg, #f1fbf6, #e3f3ea);
+
+  padding: 22px 24px;
+  margin-bottom: 24px;
+  border-radius: 18px;
+
+  box-shadow: 0 22px 42px rgba(0, 0, 0, 0.22);
+  animation: fadeUp 0.4s ease;
+}
+
+/* ================= HEADER ================= */
+.owner-order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+
+  font-weight: 700;
+  color: #064e3b;
+}
+
+/* STATUS + PAYMENT */
+.owner-order-header > div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* ================= STATUS BADGES ================= */
+.status {
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: capitalize;
+}
+
+.status.pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status.completed {
+  background: #dcfce7;
+  color: #065f46;
+}
+
+.status.cancelled {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* PAYMENT BADGE */
+.payment-badge {
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+/* ================= ITEMS ================= */
+.owner-order-items {
+  margin: 16px 0;
+  padding-top: 12px;
+  border-top: 1px dashed rgba(6, 95, 70, 0.25);
+}
+
+.owner-order-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+
+  font-size: 14px;
+  color: #064e3b;
+}
+
+/* ================= ADDRESS ================= */
+.address-card {
+  margin-top: 14px;
+  padding: 14px 16px;
+  border-radius: 14px;
+
+  background: rgba(16, 185, 129, 0.08);
+
+  font-size: 14px;
+  color: #064e3b;
+}
+
+.address-card strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* ================= FOOTER ================= */
+.owner-order-footer {
+  margin-top: 18px;
+  padding-top: 14px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  border-top: 1px solid rgba(6, 95, 70, 0.25);
+
+  font-size: 15px;
+  color: #064e3b;
+}
+
+/* ================= ACTION BUTTONS ================= */
+.status-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.status-actions button {
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: none;
+
+  background: #064e3b;
+  color: #ecfdf5;
+
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.status-actions button:hover {
+  background: #022c22;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.status-actions .cancel {
+  background: #dc2626;
+}
+
+.status-actions .cancel:hover {
+  background: #991b1b;
+}
+
+/* ================= STATES ================= */
+.owner-orders p {
+  font-size: 15px;
+  color: #064e3b;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .owner-orders {
+    padding: 24px;
+  }
+
+  .owner-orders h1 {
+    font-size: 22px;
+  }
+
+  .owner-order-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}

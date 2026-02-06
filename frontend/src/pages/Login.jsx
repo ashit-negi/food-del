@@ -2,11 +2,10 @@ import { useState, useContext } from "react";
 import API from "../api/axios";
 import { AuthContext } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
-import "./Register.css";
+import "./Login.css";
 
-const Register = () => {
+const Login = () => {
   const [formData, setFormData] = useState({
-    name: "",
     email: "",
     password: "",
   });
@@ -21,7 +20,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await API.post("/auth/register", formData);
+      const res = await API.post("/auth/login", formData);
       login(res.data.user, res.data.token);
       navigate("/");
     } catch (error) {
@@ -30,27 +29,20 @@ const Register = () => {
   };
 
   return (
-    <div className="auth-container register">
+    <div className="auth-container login">
       {/* LEFT TEXT */}
       <div className="auth-left">
-        <h1>Start your</h1>
-        <h2>food journey</h2>
+        <h1>Good food</h1>
+        <h2>delivered to you</h2>
         <p>
-          Create an account to discover nearby restaurants, order your favourite
-          meals and enjoy fast delivery.
+          Order from nearby restaurants, enjoy fast delivery and secure payments
+          — all in one place.
         </p>
       </div>
 
-      {/* FORM */}
+      {/* RIGHT FORM */}
       <form className="auth-form" onSubmit={handleSubmit}>
-        <h3>Create account</h3>
-
-        <input
-          name="name"
-          placeholder="Full name"
-          onChange={handleChange}
-          required
-        />
+        <h3>Welcome back</h3>
 
         <input
           name="email"
@@ -68,12 +60,12 @@ const Register = () => {
           required
         />
 
-        <button type="submit">Register</button>
+        <button type="submit">Login</button>
 
         <p>
-          Already have an account?{" "}
-          <Link to="/login" className="auth-link">
-            Login
+          New here?{" "}
+          <Link to="/register" className="auth-link">
+            Create account
           </Link>
         </p>
       </form>
@@ -81,4 +73,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;

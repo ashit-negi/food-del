@@ -1,0 +1,100 @@
+/* ================= HOME ================= */
+.home-container {
+  padding: 40px 48px;
+  background: linear-gradient(180deg, #9edfc3 0%, #6fcf9a 45%, #8fe0ba 100%);
+  min-height: calc(100vh - 64px);
+}
+/* ================= HERO ================= */
+.home-hero {
+  margin-bottom: 42px;
+  padding: 30px 34px;
+  border-radius: 18px;
+
+  background: linear-gradient(135deg, #e3f5ec, #b1eecc);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(8px);
+  animation: fadeSlide 0.6s ease-out;
+}
+
+.home-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #064e3b;
+  letter-spacing: -0.4px;
+}
+
+.home-title span {
+  background: linear-gradient(90deg, #ff6b00, #ff9a3c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.home-subtitle {
+  margin-top: 8px;
+  color: #065f46;
+  font-size: 16px;
+  max-width: 520px;
+  line-height: 1.6;
+}
+
+/* ================= STATES ================= */
+.loading-text,
+.empty-text {
+  text-align: center;
+  margin-top: 80px;
+  color: #6b7280;
+  font-size: 16px;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+/* ================= RESTAURANT GRID ================= */
+.restaurant-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .home-container {
+    padding: 22px;
+  }
+
+  .home-hero {
+    padding: 22px;
+    border-radius: 14px;
+  }
+
+  .home-title {
+    font-size: 24px;
+  }
+
+  .home-subtitle {
+    font-size: 14px;
+  }
+
+  .restaurant-grid {
+    gap: 18px;
+  }
+}

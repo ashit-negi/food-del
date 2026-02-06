@@ -1,0 +1,168 @@
+/* ================= CHECKOUT PAGE ================= */
+.checkout-container {
+  min-height: calc(100vh - 64px);
+  padding: 48px;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  background: linear-gradient(180deg, #9edfc3 0%, #6fcf9a 45%, #8fe0ba 100%);
+}
+
+/* ================= CHECKOUT CARD ================= */
+.checkout-card {
+  width: 100%;
+  max-width: 560px;
+
+  background: linear-gradient(135deg, #f1fbf6, #e3f3ea);
+
+  padding: 28px 30px;
+  border-radius: 18px;
+
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.22);
+  animation: fadeUp 0.45s ease;
+}
+
+/* TITLES */
+.checkout-card h2 {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 18px;
+  color: #064e3b;
+}
+
+.checkout-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: #065f46;
+}
+
+/* ================= ADDRESS FORM ================= */
+.address-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.address-row {
+  display: flex;
+  gap: 12px;
+}
+
+/* INPUTS */
+.address-grid input {
+  padding: 11px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(6, 95, 70, 0.25);
+
+  font-size: 14px;
+  color: #064e3b;
+  background: #ffffff;
+
+  transition: all 0.2s ease;
+}
+
+.address-grid input::placeholder {
+  color: #6b7280;
+}
+
+.address-grid input:focus {
+  outline: none;
+  border-color: #059669;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.25);
+}
+
+/* ================= ADDRESS PREVIEW ================= */
+.address-preview {
+  background: rgba(16, 185, 129, 0.08);
+  padding: 14px 16px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+
+  font-size: 14px;
+  color: #064e3b;
+}
+
+.address-preview strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* ================= STRIPE CARD ================= */
+.StripeElement {
+  padding: 12px;
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+/* ================= PRIMARY BUTTON ================= */
+.primary-btn {
+  margin-top: 18px;
+  width: 100%;
+
+  padding: 13px;
+  border-radius: 12px;
+  border: none;
+
+  background: #064e3b;
+  color: #ecfdf5;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.primary-btn:hover {
+  background: #022c22;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
+}
+
+.primary-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ================= ERROR ================= */
+.checkout-card p {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .checkout-container {
+    padding: 24px;
+  }
+
+  .checkout-card {
+    padding: 22px;
+  }
+
+  .checkout-card h2 {
+    font-size: 22px;
+  }
+
+  .address-row {
+    flex-direction: column;
+  }
+}

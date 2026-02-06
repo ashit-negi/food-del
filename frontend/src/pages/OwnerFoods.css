@@ -1,0 +1,227 @@
+/* ================= OWNER FOODS PAGE ================= */
+.owner-foods {
+  padding: 48px;
+  min-height: calc(100vh - 64px);
+
+  background: linear-gradient(180deg, #9edfc3 0%, #6fcf9a 45%, #8fe0ba 100%);
+}
+
+/* TITLE */
+.owner-foods h1 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 28px;
+  color: #064e3b;
+}
+
+/* ================= FOOD FORM ================= */
+.food-form {
+  max-width: 520px;
+  margin-bottom: 36px;
+
+  background: linear-gradient(135deg, #f1fbf6, #e3f3ea);
+
+  padding: 24px 26px;
+  border-radius: 18px;
+
+  box-shadow: 0 20px 38px rgba(0, 0, 0, 0.22);
+  animation: fadeUp 0.4s ease;
+}
+
+.food-form h3 {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 18px;
+  color: #064e3b;
+}
+
+/* INPUTS */
+.food-form input,
+.food-form textarea {
+  width: 100%;
+  padding: 11px 12px;
+  margin-bottom: 12px;
+
+  border-radius: 10px;
+  border: 1px solid rgba(6, 95, 70, 0.25);
+
+  font-size: 14px;
+  color: #064e3b;
+  background: #ffffff;
+
+  transition: all 0.2s ease;
+}
+
+.food-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.food-form input::placeholder,
+.food-form textarea::placeholder {
+  color: #6b7280;
+}
+
+.food-form input:focus,
+.food-form textarea:focus {
+  outline: none;
+  border-color: #059669;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.25);
+}
+
+/* ================= FORM ACTIONS ================= */
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.form-actions button {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: none;
+
+  background: #064e3b;
+  color: #ecfdf5;
+
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.form-actions button:hover {
+  background: #022c22;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+.form-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.form-actions .cancel {
+  background: #9ca3af;
+  color: #111827;
+}
+
+.form-actions .cancel:hover {
+  background: #6b7280;
+}
+
+/* ================= FOOD LIST ================= */
+.food-list {
+  max-width: 700px;
+}
+
+/* FOOD ROW */
+.food-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: linear-gradient(135deg, #f1fbf6, #e3f3ea);
+
+  padding: 16px 18px;
+  margin-bottom: 14px;
+  border-radius: 14px;
+
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.18);
+  animation: fadeUp 0.35s ease;
+}
+
+/* INFO */
+.food-row .food-info strong {
+  font-size: 16px;
+  font-weight: 800;
+  color: #064e3b;
+}
+
+.food-row .food-info p {
+  font-size: 14px;
+  margin: 2px 0;
+  color: #065f46;
+}
+
+.food-row .food-info small {
+  font-size: 12px;
+  color: #047857;
+}
+
+/* ACTIONS */
+.row-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.row-actions button {
+  padding: 7px 12px;
+  border-radius: 10px;
+  border: none;
+
+  background: #064e3b;
+  color: #ecfdf5;
+
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.row-actions button:hover {
+  background: #022c22;
+  transform: translateY(-2px);
+}
+
+.row-actions .delete {
+  background: #dc2626;
+}
+
+.row-actions .delete:hover {
+  background: #991b1b;
+}
+
+/* ================= STATES ================= */
+.food-list p {
+  font-size: 15px;
+  color: #064e3b;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .owner-foods {
+    padding: 24px;
+  }
+
+  .owner-foods h1 {
+    font-size: 22px;
+  }
+
+  .food-form {
+    padding: 20px;
+  }
+
+  .food-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}

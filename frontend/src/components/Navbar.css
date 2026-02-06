@@ -1,0 +1,97 @@
+/* ================= NAVBAR ================= */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  height: 64px;
+  padding: 0 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: linear-gradient(
+    180deg,
+    #9edfc3,
+    #6fcf9a
+  );
+
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.35);
+}
+
+/* ================= LOGO ================= */
+.navbar-logo {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  cursor: pointer;
+
+  color: #064e3b;
+  transition: transform 0.25s ease;
+}
+
+.navbar-logo:hover {
+  transform: scale(1.05);
+}
+
+/* ================= RIGHT SECTION ================= */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* ================= BUTTONS ================= */
+.navbar-btn,
+.cart-btn,
+.home-btn {
+  position: relative;
+
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: none;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  background: rgba(255, 255, 255, 0.85);
+  color: #065f46;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Hover effect */
+.navbar-btn:hover,
+.cart-btn:hover,
+.home-btn:hover {
+  background: #ffffff;
+  color: #064e3b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* ================= CART BADGE ================= */
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+
+  border-radius: 999px;
+  background: #ef4444;
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ================= LOGOUT BU*
