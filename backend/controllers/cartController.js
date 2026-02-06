@@ -1,6 +1,10 @@
+const mongoose = require("mongoose");
 const Cart = require("../models/Cart");
 const Food = require("../models/Food");
 
+// =======================
+// ADD TO CART
+// =======================
 const addToCart = async (req, res) => {
   try {
     const { foodId, quantity } = req.body;
@@ -27,18 +31,34 @@ const addToCart = async (req, res) => {
       });
     }
 
-    cart.items.push({
-      food: foodId,
-      quantity: quantity || 1,
-    });
+    // 🔥 CHECK IF FOOD ALREADY EXISTS
+    const existingItem = cart.items.find(
+      (item) => item.food.toString() === foodId,
+    );
 
-    cart.totalPrice += food.price * (quantity || 1);
+    if (existingItem) {
+      // ✅ increase quantity
+      existingItem.quantity += quantity || 1;
+    } else {
+      // ✅ add new item
+      cart.items.push({
+        food: foodId,
+        quantity: quantity || 1,
+      });
+    }
+
+    // 🔥 RECALCULATE TOTAL PRICE
+    cart.totalPrice = 0;
+    for (let item of cart.items) {
+      const itemFood = await Food.findById(item.food);
+      cart.totalPrice += itemFood.price * item.quantity;
+    }
 
     await cart.save();
 
     res.send({
       success: true,
-      message: "Food added to cart",
+      message: "Cart updated successfully",
       cart,
     });
   } catch (error) {
@@ -49,13 +69,16 @@ const addToCart = async (req, res) => {
   }
 };
 
+// =======================
+// GET CART  ✅ FIXED
+// =======================
 const getCart = async (req, res) => {
   try {
     const { restaurantId } = req.params;
 
     const cart = await Cart.findOne({
       user: req.user._id,
-      restaurant: restaurantId,
+      restaurant: new mongoose.Types.ObjectId(restaurantId),
     }).populate("items.food");
 
     if (!cart) {
@@ -71,20 +94,22 @@ const getCart = async (req, res) => {
     });
   } catch (error) {
     res.send({
-      succss: false,
+      success: false,
       message: error.message,
     });
   }
 };
 
-// to update the cart
+// =======================
+// UPDATE CART
+// =======================
 const updateCart = async (req, res) => {
   try {
-    const { restaurantId, foodId, quantity } = req.params;
+    const { restaurantId, foodId, quantity } = req.body;
 
-    const cart = await Cart.findOneAndUpdate({
+    const cart = await Cart.findOne({
       user: req.user._id,
-      restaurant: restaurantId,
+      restaurant: new mongoose.Types.ObjectId(restaurantId),
     });
 
     if (!cart) {
@@ -94,7 +119,6 @@ const updateCart = async (req, res) => {
       });
     }
 
-    //to find the food item inside the cart
     const item = cart.items.find((i) => i.food.toString() === foodId);
 
     if (!item) {
@@ -103,16 +127,16 @@ const updateCart = async (req, res) => {
         message: "Food not found in cart",
       });
     }
-    //to get the food price
+
     const food = await Food.findById(foodId);
 
-    //remove old price
+    // remove old price
     cart.totalPrice -= item.quantity * food.price;
 
-    //update quantity
+    // update quantity
     item.quantity = quantity;
 
-    //new price
+    // add new price
     cart.totalPrice += quantity * food.price;
 
     await cart.save();
@@ -130,14 +154,16 @@ const updateCart = async (req, res) => {
   }
 };
 
-// remove items from the cart
+// =======================
+// REMOVE ITEM FROM CART
+// =======================
 const removeItemFromCart = async (req, res) => {
   try {
     const { restaurantId, foodId } = req.body;
 
     const cart = await Cart.findOne({
       user: req.user._id,
-      restaurant: restaurantId,
+      restaurant: new mongoose.Types.ObjectId(restaurantId),
     });
 
     if (!cart) {
@@ -158,25 +184,24 @@ const removeItemFromCart = async (req, res) => {
       });
     }
 
-    // remove price
     cart.totalPrice -= cart.items[itemIndex].quantity * food.price;
 
-    //remove item
     cart.items.splice(itemIndex, 1);
 
-    //cart item...... delete it
     if (cart.items.length === 0) {
-      await Cart.findOneAndDelete(cart._id);
+      await Cart.findByIdAndDelete(cart._id);
       return res.send({
         success: true,
         message: "Cart cleared",
       });
     }
+
     await cart.save();
 
     res.send({
       success: true,
       message: "Item removed from the cart",
+      cart,
     });
   } catch (error) {
     res.send({
@@ -186,4 +211,9 @@ const removeItemFromCart = async (req, res) => {
   }
 };
 
-module.exports = { addToCart, getCart, updateCart, removeItemFromCart };
+module.exports = {
+  addToCart,
+  getCart,
+  updateCart,
+  removeItemFromCart,
+};

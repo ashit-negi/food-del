@@ -1,15 +1,19 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
+
+dotenv.config(); // ✅ MUST BE AT TOP
+
 const connectDB = require("./config/db");
+
 const authRoutes = require("./routes/authRoutes");
 const testRoutes = require("./routes/testRoutes");
 const restaurantRoute = require("./routes/restaurantRoutes");
 const foodRoutes = require("./routes/foodRoutes");
 const cartRoutes = require("./routes/cartRoutes");
 const orderRoutes = require("./routes/orderRoutes");
-
-dotenv.config();
+const paymentRoutes = require("./routes/paymentRoutes");
+const userRoutes = require("./routes/userRoutes");
 
 connectDB();
 
@@ -24,6 +28,8 @@ app.use("/api/restaurants", restaurantRoute);
 app.use("/api/food", foodRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/order", orderRoutes);
+app.use("/api/payment", paymentRoutes);
+app.use("/api/user", userRoutes);
 
 app.get("/", (req, res) => {
   res.send("Food Delivery Backend Running");

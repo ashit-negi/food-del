@@ -3,14 +3,30 @@ const {
   createRestaurant,
   getAllRestaurants,
   getSingleRestaurant,
+  getMyRestaurants,
 } = require("../controllers/restaurantController");
 const { protect } = require("../middleware/authMiddleware");
 
 const router = express.Router();
-// this is for protected route
+
+// ============================
+// CREATE RESTAURANT (rOwner)
+// ============================
 router.post("/", protect, createRestaurant);
-//this one is public route
+
+// ============================
+// GET ALL RESTAURANTS (PUBLIC)
+// ============================
 router.get("/", getAllRestaurants);
+
+// ============================
+// 🔥 GET ALL RESTAURANTS OF LOGGED-IN OWNER
+// ============================
+router.get("/my/restaurants", protect, getMyRestaurants);
+
+// ============================
+// GET SINGLE RESTAURANT
+// ============================
 router.get("/:id", getSingleRestaurant);
 
 module.exports = router;

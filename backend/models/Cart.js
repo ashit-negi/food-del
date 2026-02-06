@@ -7,6 +7,13 @@ const cartSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
+
+    restaurant: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Restaurant",
+      required: true,
+    },
+
     items: [
       {
         food: {
@@ -14,19 +21,12 @@ const cartSchema = new mongoose.Schema(
           ref: "Food",
           required: true,
         },
-
         quantity: {
           type: Number,
           default: 1,
         },
       },
     ],
-
-    restaurant: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Restaurant",
-      required: true,
-    },
 
     totalPrice: {
       type: Number,
@@ -35,7 +35,7 @@ const cartSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 module.exports = mongoose.model("Cart", cartSchema);
