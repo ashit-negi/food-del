@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 import Register from "./pages/Register";
 import Login from "./pages/Login";
@@ -19,6 +20,7 @@ import PaymentSuccess from "./pages/PaymentSuccess";
 function App() {
   return (
     <CartProvider>
+      <Toaster position="top-center" reverseOrder={false} />
       <Routes>
         {/* ================= PUBLIC ROUTES ================= */}
         <Route path="/register" element={<Register />} />

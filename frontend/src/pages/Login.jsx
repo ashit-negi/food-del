@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import API from "../api/axios";
 import { AuthContext } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast"; // ✅ ADD
 import "./Login.css";
 
 const Login = () => {
@@ -21,10 +22,15 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await API.post("/auth/login", formData);
+
+      // ✅ SUCCESS MESSAGE
+      toast.success(res.data.message || "Login successful");
+
       login(res.data.user, res.data.token);
       navigate("/");
     } catch (error) {
-      console.log(error.message);
+      // ✅ ERROR MESSAGE
+      toast.error(error.response?.data?.message || "Login failed");
     }
   };
 
