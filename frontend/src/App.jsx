@@ -10,32 +10,25 @@ import OrderHistory from "./pages/OrderHistory";
 import OwnerOrders from "./pages/OwnerOrders";
 import OwnerFoods from "./pages/OwnerFoods";
 import MyRestaurants from "./pages/MyRestaurants";
+import Checkout from "./pages/Checkout";
+import PaymentSuccess from "./pages/PaymentSuccess";
 
 import ProtectedRoute from "./routes/ProtectedRoute";
 import OwnerRoute from "./routes/OwnerRoute";
 import { CartProvider } from "./context/CartContext";
-import Checkout from "./pages/Checkout";
-import PaymentSuccess from "./pages/PaymentSuccess";
 
 function App() {
   return (
     <CartProvider>
       <Toaster position="top-center" reverseOrder={false} />
+
       <Routes>
-        {/* ================= PUBLIC ROUTES ================= */}
-        <Route path="/register" element={<Register />} />
+        {/* ===== PUBLIC ===== */}
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
-        {/* ================= CUSTOMER ROUTES ================= */}
-        <Route
-          path="/"
-          element={
-            <ProtectedRoute>
-              <Home />
-            </ProtectedRoute>
-          }
-        />
-
+        {/* ===== CUSTOMER (PROTECTED) ===== */}
         <Route
           path="/restaurant/:id"
           element={
@@ -55,22 +48,6 @@ function App() {
         />
 
         <Route
-          path="/orders/:restaurantId"
-          element={
-            <ProtectedRoute>
-              <OrderHistory />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/orders"
-          element={
-            <ProtectedRoute>
-              <OrderHistory />
-            </ProtectedRoute>
-          }
-        />
-        <Route
           path="/checkout/:restaurantId"
           element={
             <ProtectedRoute>
@@ -89,6 +66,25 @@ function App() {
         />
 
         <Route
+          path="/orders"
+          element={
+            <ProtectedRoute>
+              <OrderHistory />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/orders/:restaurantId"
+          element={
+            <ProtectedRoute>
+              <OrderHistory />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* ===== OWNER ===== */}
+        <Route
           path="/owner/restaurants"
           element={
             <OwnerRoute>
@@ -97,7 +93,6 @@ function App() {
           }
         />
 
-        {/* 🔥 OWNER MANAGE ROUTES */}
         <Route
           path="/owner/foods/:restaurantId"
           element={
