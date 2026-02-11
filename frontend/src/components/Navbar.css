@@ -110,14 +110,15 @@
   color: #064e3b;
 }
 
-/* ================= MOBILE NAVBAR ================= */
+/* ================= MOBILE NAVBAR (LOGGED-IN ONLY) ================= */
 @media (max-width: 768px) {
-  .hamburger {
+  /* Hamburger only for logged-in navbar */
+  .navbar:not(.landing-navbar) .hamburger {
     display: block;
   }
 
-  /* 🔥 IMPORTANT: force hide by default */
-  .navbar-right {
+  /* Hide menu by default (logged-in only) */
+  .navbar:not(.landing-navbar) .navbar-right {
     display: none !important;
     position: absolute;
     top: 64px;
@@ -131,18 +132,29 @@
     z-index: 999;
   }
 
-  /* 🔥 open only when class is added */
-  .navbar-right.open {
+  /* Open on hamburger click */
+  .navbar:not(.landing-navbar) .navbar-right.open {
     display: flex !important;
   }
 
-  .navbar-right button {
+  .navbar:not(.landing-navbar) .navbar-right button {
     width: 90%;
     justify-content: center;
   }
 
+  /* ❌ Landing navbar should NEVER hide */
+  .landing-navbar .navbar-right {
+    display: flex !important;
+    position: static;
+  }
+
+  .landing-navbar .hamburger {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
   .navbar-logo {
-    font-size: 20px;
-    line-height: 1.2;
+    font-size: 22px;
   }
 }
