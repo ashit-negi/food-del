@@ -37,14 +37,24 @@
   color: #ecfdf5;
 }
 
-/* ===== MOBILE POLISH (NO LAYOUT CHANGE) ===== */
+/* ================= MOBILE NAVBAR FIX ================= */
 @media (max-width: 600px) {
-  .landing-navbar {
-    padding: 8px 12px;
+  .navbar {
+    flex-wrap: wrap;
+    row-gap: 8px;
   }
 
-  .landing-navbar .home-btn {
+  .navbar-right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .landing-navbar .home-btn,
+  .landing-navbar .navbar-btn {
     padding: 6px 12px;
-    font-size: 14px;
+    font-size: 13px;
   }
 }
