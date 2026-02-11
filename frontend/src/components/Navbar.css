@@ -11,11 +11,7 @@
   align-items: center;
   justify-content: space-between;
 
-  background: linear-gradient(
-    180deg,
-    #9edfc3,
-    #6fcf9a
-  );
+  background: linear-gradient(180deg, #9edfc3, #6fcf9a);
 
   box-shadow: 0 10px 30px rgba(16, 185, 129, 0.35);
 }
@@ -94,4 +90,59 @@
   justify-content: center;
 }
 
-/* ================= LOGOUT BU*
+/* ================= HAMBURGER (MOBILE ONLY) ================= */
+.hamburger {
+  display: none;
+  font-size: 26px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #064e3b;
+}
+
+/* ================= HAMBURGER ================= */
+.hamburger {
+  display: none;
+  font-size: 26px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #064e3b;
+}
+
+/* ================= MOBILE NAVBAR ================= */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  /* 🔥 IMPORTANT: force hide by default */
+  .navbar-right {
+    display: none !important;
+    position: absolute;
+    top: 64px;
+    right: 0;
+    width: 100%;
+    background: linear-gradient(180deg, #9edfc3, #6fcf9a);
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 20px 0;
+    z-index: 999;
+  }
+
+  /* 🔥 open only when class is added */
+  .navbar-right.open {
+    display: flex !important;
+  }
+
+  .navbar-right button {
+    width: 90%;
+    justify-content: center;
+  }
+
+  .navbar-logo {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}

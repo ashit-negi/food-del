@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { useCart } from "../context/CartContext";
@@ -8,6 +8,7 @@ const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
   const { cart } = useCart();
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
 
   const handleLogout = () => {
     logout();
@@ -23,18 +24,22 @@ const Navbar = () => {
         Foodify 🍔
       </h2>
 
-      <div className="navbar-right">
-        <button
-          type="button"
-          className="home-btn"
-          onClick={() => navigate("/")}
-        >
+      {/* 🍔 Hamburger (mobile only) */}
+      <button
+        type="button"
+        className="hamburger"
+        onClick={() => setOpen(!open)}
+        aria-label="Toggle menu"
+      >
+        ☰
+      </button>
+
+      <div className={`navbar-right ${open ? "open" : ""}`}>
+        <button className="home-btn" onClick={() => navigate("/")}>
           Home 🏠
         </button>
 
-        {/* ✅ CART — customer + owner */}
         <button
-          type="button"
           className="cart-btn"
           onClick={() => {
             if (!cart || cart.items.length === 0) {
@@ -48,19 +53,12 @@ const Navbar = () => {
           {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
         </button>
 
-        {/* ✅ MY ORDERS — customer + owner */}
-        <button
-          type="button"
-          className="cart-btn"
-          onClick={() => navigate("/orders")}
-        >
+        <button className="cart-btn" onClick={() => navigate("/orders")}>
           My Orders 📦
         </button>
 
-        {/* ✅ RESTAURANT OWNER */}
         {user?.role === "rOwner" && (
           <button
-            type="button"
             className="cart-btn"
             onClick={() => navigate("/owner/restaurants")}
           >
@@ -68,7 +66,7 @@ const Navbar = () => {
           </button>
         )}
 
-        <button type="button" className="navbar-btn" onClick={handleLogout}>
+        <button className="navbar-btn" onClick={handleLogout}>
           Logout
         </button>
       </div>
