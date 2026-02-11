@@ -377,3 +377,28 @@
     width: 280px;
   }
 }
+/* ================= EXTRA MOBILE FIX (PHONE ONLY) ================= */
+@media screen and (max-width: 600px) {
+  /* tighter hero image for real phones */
+  .chef-blob {
+    width: 240px;
+    height: 240px;
+  }
+
+  .chef-blob::before {
+    inset: -5%;
+    filter: blur(14px);
+  }
+
+  .chef-blob img {
+    width: 200px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* reduce extra vertical space */
+  .landing {
+    padding-top: 24px;
+    padding-bottom: 32px;
+  }
+}
