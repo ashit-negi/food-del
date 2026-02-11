@@ -377,26 +377,28 @@
     width: 280px;
   }
 }
-/* ================= EXTRA MOBILE FIX (PHONE ONLY) ================= */
+/* ================= MOBILE ONLY FIX (NO DESKTOP IMPACT) ================= */
 @media screen and (max-width: 600px) {
-  /* tighter hero image for real phones */
+  /* hero image container fix */
   .chef-blob {
-    width: 240px;
-    height: 240px;
+    width: 220px;
+    height: 220px;
   }
 
+  /* blob background thoda soft */
   .chef-blob::before {
-    inset: -5%;
-    filter: blur(14px);
+    inset: -4%;
+    filter: blur(12px);
   }
 
+  /* actual chef image resize */
   .chef-blob img {
-    width: 200px;
+    width: 180px;
     height: auto;
     object-fit: contain;
   }
 
-  /* reduce extra vertical space */
+  /* landing spacing only for mobile */
   .landing {
     padding-top: 24px;
     padding-bottom: 32px;

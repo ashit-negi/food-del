@@ -4,6 +4,11 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
+/* LOGO */
+.navbar-logo {
+  cursor: pointer;
+}
+
 /* REUSE BUTTON STYLE */
 .landing-navbar .home-btn {
   background: #ecfdf5;
@@ -30,4 +35,16 @@
 .landing-navbar .navbar-btn.outline:hover {
   background: #064e3b;
   color: #ecfdf5;
+}
+
+/* ===== MOBILE POLISH (NO LAYOUT CHANGE) ===== */
+@media (max-width: 600px) {
+  .landing-navbar {
+    padding: 8px 12px;
+  }
+
+  .landing-navbar .home-btn {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
 }
