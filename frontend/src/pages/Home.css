@@ -235,7 +235,6 @@
   margin-bottom: 25px;
 }
 
-/* ===== ABOUT FEATURES ===== */
 .about-features {
   margin-top: 40px;
   display: grid;
@@ -308,17 +307,61 @@
   color: #064e3b;
 }
 
-/* ================= MOBILE ================= */
+/* ================= MOBILE FIX (ONLY FIXES) ================= */
 @media (max-width: 900px) {
+  body {
+    overflow-x: hidden;
+  }
+
   .landing {
     grid-template-columns: 1fr;
-    padding: 36px 24px;
+    padding: 32px 18px;
+    gap: 40px;
     text-align: center;
+    min-height: auto;
+  }
+
+  .landing-left h1 {
+    font-size: 34px;
+  }
+
+  .landing-left p {
+    font-size: 15px;
+    max-width: 100%;
+  }
+
+  .landing-actions {
+    justify-content: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .landing-right {
+    order: -1;
   }
 
   .chef-blob {
-    width: 420px;
-    height: 420px;
+    width: 300px;
+    height: 300px;
+  }
+
+  .chef-blob img {
+    width: 240px;
+  }
+
+  .home-container {
+    padding: 28px 18px;
+  }
+
+  .restaurant-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-section {
+    padding: 70px 6%;
+    min-height: auto;
   }
 
   .about-features {
@@ -330,11 +373,7 @@
     text-align: center;
   }
 
-  .social-icons {
-    justify-content: center;
-    margin-top: 28px;
-  }
-  .landing-actions {
-    justify-content: center;
+  .contact-image img {
+    width: 280px;
   }
 }
