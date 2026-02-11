@@ -36,25 +36,32 @@
   background: #064e3b;
   color: #ecfdf5;
 }
-
-/* ================= MOBILE NAVBAR FIX ================= */
+/* ================= MOBILE NAVBAR FIX (INLINE) ================= */
 @media (max-width: 600px) {
   .navbar {
-    flex-wrap: wrap;
-    row-gap: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap; /* 🔥 MOST IMPORTANT */
+    padding: 10px 12px;
+  }
+
+  .navbar-logo {
+    font-size: 18px;
+    white-space: nowrap;
   }
 
   .navbar-right {
-    width: 100%;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 8px;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: nowrap; /* 🔥 no wrapping */
   }
 
   .landing-navbar .home-btn,
   .landing-navbar .navbar-btn {
-    padding: 6px 12px;
-    font-size: 13px;
+    padding: 6px 10px;
+    font-size: 12px;
+    white-space: nowrap;
   }
 }
