@@ -47,7 +47,7 @@
   }
 
   .navbar-logo {
-    font-size: 18px;
+    font-size: 16px;
     white-space: nowrap;
   }
 
@@ -61,7 +61,7 @@
   .landing-navbar .home-btn,
   .landing-navbar .navbar-btn {
     padding: 6px 10px;
-    font-size: 12px;
+    font-size: 11px;
     white-space: nowrap;
   }
 }
